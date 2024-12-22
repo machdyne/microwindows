@@ -1,0 +1,8 @@
+       INCLUDES = -I$(TOP)
+        DEPLIBS = $(DEPXLIBONLY)
+LOCAL_LIBRARIES = $(XLIBONLY)
+        DEFINES = -DSHAPE #-DDEBUG -DDEBUG_EV
+           SRCS = 9menu.c
+           OBJS = 9menu.o
+
+ComplexProgramTarget(9menu)

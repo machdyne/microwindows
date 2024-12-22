@@ -56,6 +56,7 @@ OBJCOPY = $(TOOLSPREFIX)objcopy
 # Default tools locations (overridden in config)
 ##############################################################################
 NATIVETOOLSPREFIX        =
+RVTOOLSPREFIX            = riscv32-unknown-linux-gnu-
 ARMTOOLSPREFIX           = arm-linux-
 ANDROIDTOOLSPREFIX       = arm-linux-androideabi-
 RPITOOLSPREFIX           = arm-linux-gnueabihf-
@@ -116,7 +117,8 @@ TOOLSPREFIX = $(AJAGUARTOOLSPREFIX)
 endif
 
 ifeq ($(ARCH), LINUX-NATIVE)
-DEFINES += -DLINUX=1 -DUNIX=1
+TOOLSPREFIX = $(RVTOOLSPREFIX)
+DEFINES += -DLINUX=1 -DUNIX=1 -DARCH_NEED_ALIGN32
 endif
 
 ifeq ($(ARCH), LINUX-LINARO)

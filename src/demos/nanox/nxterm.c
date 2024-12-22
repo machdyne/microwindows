@@ -76,7 +76,7 @@
 //#define stdbackground BLUE //LTGRAY
 #define stdbackground LTGRAY
 #define stdcol 80
-#define stdrow 50 //25
+#define stdrow 25 //50
 
 #define TITLE		"nxterm"
 #define	SMALLBUFFER stdcol //80
@@ -1182,7 +1182,7 @@ term(void)
 
 		case GR_EVENT_TYPE_EXPOSURE:
 			//screen is empty otherwise - so this workaround
-		    (void)write(pipeh,"clear\n",strlen("clear\n"));
+		    //(void)write(pipeh,"clear\n",strlen("clear\n")); comment line out as window refocusing causes clear to be injected into the terminal
 			break;
 
 		case GR_EVENT_TYPE_FDINPUT:

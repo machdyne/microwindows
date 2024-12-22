@@ -15,7 +15,7 @@
 #if NUKLEARUI
 const GR_COLOR nxSysColors[MAXSYSCOLORS] = {
 	/* desktop background*/
-	GR_RGB(  0, 128, 128),  /* GR_COLOR_DESKTOP             */
+	GR_RGB(105, 105, 105),  /* GR_COLOR_DESKTOP             */
 
 	/* caption colors*/
 	GR_RGB( 40,  40,  40),	/* GR_COLOR_ACTIVECAPTION       */
