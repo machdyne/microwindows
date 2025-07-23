@@ -57,7 +57,7 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-CC = gcc
+CC ?= gcc
 MAKEINFO = makeinfo
 PACKAGE = sdldoom
 SDL_CFLAGS = -I/usr/local/include -I/usr/local/include/SDL -D_REENTRANT
@@ -98,7 +98,7 @@ doom_LDFLAGS =
 #CFLAGS = -I/usr/local/include -I/usr/local/include/SDL -D_REENTRANT
 #LIBS =  -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL -lpthread
 
-CFLAGS = -I../../include -DALWAYS=1
+CFLAGS = -I../../include -std=gnu89 -DALWAYS=1
 #CFLAGS += -g
 LIBS =  -L../../lib -lnano-X
 # use Microwindows pixel format via config file for i_video.c
