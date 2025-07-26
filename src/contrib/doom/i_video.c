@@ -373,6 +373,21 @@ void I_FinishUpdate (void)
 	}
 	GrArea(win, gc, 0, 0, SCREENWIDTH*multiply, SCREENHEIGHT*multiply,
 		argb_start, MWPF_TRUECOLORARGB);
+#elif MWPIXEL_FORMAT == MWPF_TRUECOLOR565
+	/* convert palette screen to 32-bit ARGB and display*/
+	int size = SCREENHEIGHT * multiply * SCREENWIDTH * multiply;
+	uint32_t *argb, *argb_start;
+	argb = argb_start = alloca(size * sizeof(uint32_t));
+
+#define CONVPAL(c)  RGB2PIXEL565(pal.palette[c].r, pal.palette[c].g, pal.palette[c].b)
+	unsigned char *input = output;
+	for (i=0; i<size; i++)
+	{
+		*argb++ = CONVPAL(*input);
+		input++;
+	}
+	GrArea(win, gc, 0, 0, SCREENWIDTH*multiply, SCREENHEIGHT*multiply,
+		argb_start, MWPF_TRUECOLORARGB);
 #elif MWPIXEL_FORMAT == MWPF_PALETTE
     GrArea(win, gc, 0, 0, SCREENWIDTH*multiply, SCREENHEIGHT*multiply, output, MWPF_PALETTE);
 #else
